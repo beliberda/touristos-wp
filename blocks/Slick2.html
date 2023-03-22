@@ -1,0 +1,30 @@
+
+        <div>
+            <div class="section-full bg-white content-inner-1">
+                <div class="container">
+                    <div class="section-head style1 text-center text-white">
+                        <h2 class="box-title">Наши партнеры</h2>
+                        <div class="dlab-separator bg-primary"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <Slider class="testimonial-center nav-btn-center-lr white">
+
+                                    <div class="item">
+                                        <div class="testimonial-1 style-2">
+                                            <div class="testimonial-detail clearfix">
+                                                <div class="testimonial-pic radius">
+                                                    <img src='{item.image}' width="150" height="150" alt="" />
+                                                </div>
+                                                <strong class="testimonial-name text-primary">{item.title}</strong>
+                                                <span dangerouslySetInnerHTML={{ __html: item.content }}></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </Slider>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

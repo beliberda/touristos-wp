@@ -1,0 +1,432 @@
+<head>
+    <link rel="stylesheet" href="../assets/css/index.css">
+</head>
+
+        <div>
+            <div class="dlab-bnr-inr overlay-black-light" >
+                <div class="container">
+                    <div class="dlab-bnr-inr-entry">
+                        <h1 class="text-white">Урочище БОЛЬШОЙ ЛИПОВЫЙ</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="listing-details-head">
+                <div class="container">
+                    <div class="listing-info-box">
+                        <div class="listing-theme-logo">
+                            <img src='https://xn--b1amiugdde.xn--p1ai/wp-content/uploads/2022/02/image-3.png' alt="" />
+                        </div>
+                        <div class="listing-info">
+                            <div class="listing-info-left">
+                                <h3 class="title">БОЛЬШОЙ ЛИПОВЫЙ</h3>
+                                <p>Центр расположен в лесной зоне, в 13 км от центра города Партизанска и в 5-ти км. от п.Наречное, в 2 км от станции Красноармейское.
+                                    Располагается Центр в уникальном природном комплексе, в глубоком таежном распадке, в предгорьях Сихотэ-Алиня (хребет Партизанский и хребет Пидан).
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="listing-details-nav">
+                <div class="container">
+                    <ul class="listing-nav nav justify-content-center">
+                        <li>
+                            <a class={classnames({ active: activeTab === '1' })}
+                                onClick={() => { toggle('1'); }}><i class="la la-home"></i><span>Основное</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class={classnames({ active: activeTab === '2' })}
+                                onClick={() => { toggle('2'); }}><i class="la la-file-text"></i><span>Описание</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class={classnames({ active: activeTab === '3' })}
+                                onClick={() => { toggle('3'); }}><i class="la la-list-alt"></i><span>Услуги</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class={classnames({ active: activeTab === '4' })}
+                                onClick={() => { toggle('4'); }}><i class="la la-image"></i><span>Фото</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class={classnames({ active: activeTab === '6' })}
+                                onClick={() => { toggle('6'); }}><i class="la la-calendar-check-o"></i><span>События</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-full listing-details-content">
+                <div class="container">
+                    <TabContent activeTab={activeTab}>
+                        <TabPane tabId="1">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-7 col-md-12">
+
+                                    <div class="content-box">
+                                        <div class="content-header">
+                                            <h3 class="title"><i class="la la-file-text m-r5"></i> описание</h3>
+                                        </div>
+                                        <div class="content-body">
+
+                                            <p dangerouslySetInnerHTML={{ __html: lipovoy.content }} />
+
+                                        </div>
+                                    </div>
+                                    <div class="content-box">
+                                        <div class="content-header">
+                                            <h3 class="title"><i class="la la-list-alt m-r5"></i>услуги</h3>
+                                        </div>
+                                        <div class="content-body">
+                                            <ul class="icon-box-list list-col-4">
+                                                {lipovoy.images ? lipovoy.tags.map((item, index) =>
+
+                                                    <li><a href="" class="icon-box-info">
+                                                        <div class="icon-cell bg-gray">
+                                                            <i class="la la-cutlery"></i>
+                                                        </div>
+                                                        <span>{item}</span>
+                                                    </a></li>
+
+                                                ) : ''}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="content-box">
+                                        <div class="content-header">
+                                            <h3 class="title"><i class="la la-file-image-o"></i> Фото</h3>
+                                        </div>
+                                        <div class="product-gallery on-show-slider">
+                                            <Slider class="blog-carousel nav-btn-center-lr btn-1" {...settings} >
+                                                {
+                                                    lipovoy.images ? lipovoy.img.map((item, index) => (
+                                                        <div class="item" key={index}>
+                                                            <div class="dlab-box">
+                                                                <div class="dlab-thum-bx">
+                                                                    <img src={item} alt="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                                        : ''}
+                                            </Slider>
+                                        </div>
+                                    </div>
+
+                                    <div class="content-box">
+                                        <div class="content-header">
+                                            <h3 class="title"><i class="la la-calendar-check-o m-r5"></i>События</h3>
+                                        </div>
+                                        <div class="content-body">
+                                            <div class="row">
+
+                                                {dataPlaces.map((item, index) => (
+                                                    <div class="col-md-12 col-lg-6 col-sm-12 m-b30" key={index}>
+                                                        <div class="dlab-box place-bx top-item">
+                                                            <div class="dlab-media top-item__media"> <a><img src={item.images[0]?.src || 'https://xn--b1amiugdde.xn--p1ai/wp-content/uploads/2018/11/DSC_2797-scaled.jpg'} alt="" /></a> </div>
+                                                            <div class="dlab-info p-tb30 p-lr10 text-center bg-gray">
+                                                                <h4 class="dlab-title m-t0"><a>{item.name}</a></h4>
+                                                                <p class="m-b10">{item.name}</p>
+                                                                <a href='./booking/' class="site-button outline radius-xl m-lr5">Подробнее</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <iframe title="This is a unique title" src="https://yandex.ru/map-widget/v1/?um=constructor%3Adebb49e651a6cc6ff194d513dcbdb3b6787745f0de4aecb30e0524c6c95cc0b0&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+
+                                </div>
+
+                                <div class="col-xl-4 col-lg-5 col-md-12 sticky-top">
+                                    <aside class="side-bar listing-side-bar">
+                                        <div class="content-box">
+
+                                            <div class="content-body">
+                                                <div class="tour-booking-form">
+                                                    <div class="tour-booking-head">
+
+                                                        <span>Выбрать даты</span>
+                                                    </div>
+
+
+                                                    <form id="formElem" class="hotel-booking">
+                                                        <input type='hidden' name='tourName' value={lipovoy.title}></input>
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-xl-6 col-sm-6 col-6">
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input
+                                                                            name="dateStart"
+                                                                            required=""
+                                                                            class="form-control"
+                                                                            placeholder=""
+                                                                            type="date"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-xl-6 col-sm-6 col-6">
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input
+                                                                            name="dateFinish"
+                                                                            required=""
+                                                                            class="form-control"
+                                                                            placeholder=""
+                                                                            type="date"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input
+                                                                            name="fio"
+                                                                            required=""
+                                                                            class="form-control"
+                                                                            placeholder="ФИО"
+                                                                            type="text"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input
+                                                                            name="tel"
+                                                                            required=""
+                                                                            class="form-control"
+                                                                            placeholder="+7 977 777 77 77"
+                                                                            type="tel"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input
+                                                                            name="email"
+                                                                            required=""
+                                                                            class="form-control"
+                                                                            placeholder="info@mail.ru"
+                                                                            type="mail"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6 col-xl-4 col-sm-6 col-6">
+                                                                <div class="form-group">
+                                                                    <div class="quantity btn-quantity">
+                                                                        <input
+                                                                            class="form-control"
+                                                                            id="demo_vertical2"
+                                                                            type="number"
+                                                                            placeholder='1'
+                                                                            name="rooms"
+                                                                        />
+                                                                    </div>
+                                                                    <span class="font-12">Комнат</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 col-12">
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input
+                                                                            name="comments"
+                                                                            required=""
+                                                                            class="form-control"
+                                                                            placeholder="Комментарий (при желании)"
+                                                                            type="textarea"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12 col-12">
+                                                                <a ><button
+                                                                    type="submit"
+                                                                    class="site-button btn-block"
+                                                                    onClick={formHandler}
+                                                                >Забронировать</button></a>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="content-box">
+                                            <div class="content-header">
+                                                <h3 class="title"><i class="la la-map-signs m-r5"></i>Инфо</h3>
+                                            </div>
+                                            <div class="content-body">
+                                                <ul class="icon-box-list">
+                                                    <li><a href="" class="icon-box-info">
+                                                        <div class="icon-cell bg-gray">
+                                                            <i class="la la-envelope"></i>
+                                                        </div>
+                                                        <span>turistdv@bk.ru</span>
+                                                    </a></li>
+                                                    <li><a href="" class="icon-box-info">
+                                                        <div class="icon-cell bg-gray">
+                                                            <i class="la la-phone"></i>
+                                                        </div>
+                                                        <span>+7 423 290-94-10</span>
+                                                    </a></li>
+
+                                                    <li><a href="" class="icon-box-info">
+                                                        <div class="icon-cell bg-gray">
+                                                            <i class="la la-map-marker"></i>
+                                                        </div>
+                                                        <span>Владивосток, ул. Алеутская 28, офис 207</span>
+                                                    </a></li>
+                                                </ul>
+                                                <ul class="list-inline m-tb20">
+                                                    <li><a href={'https://t.me/vldvtour'} class="site-button sharp"><i class="fa"><img src={Telegram} width="16px" height="16px" alt="telegram" /></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="content-box">
+                                            <div class="content-header">
+                                                <h3 class="title"><i class="la la-tags m-r5"></i>Отметки</h3>
+                                            </div>
+                                            <div class="content-body">
+                                                <ul class="icon-box-list list-col-2">
+                                                    {lipovoy.images ? lipovoy.tags.map((item, index) =>
+
+                                                        <li><a href="" class="icon-box-info">
+                                                            <div class="icon-cell bg-gray">
+                                                                <i class="la la-cutlery"></i>
+                                                            </div>
+                                                            <span>{item}</span>
+                                                        </a></li>
+
+                                                    ) : ''}
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </aside>
+                                </div>
+
+                            </div>
+                        </TabPane>
+                        <TabPane tabId="2">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="content-box">
+                                        <div class="content-header">
+                                            <h3 class="title">Описание</h3>
+                                        </div>
+                                        <div class="content-body">
+                                            <p dangerouslySetInnerHTML={{ __html: lipovoy.content }} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </TabPane>
+                        <TabPane tabId="3">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="content-box">
+                                        <div class="content-header">
+                                            <h3 class="title">Отметки</h3>
+                                        </div>
+                                        <div class="content-body">
+                                            <ul class="icon-box-list list-col-4">
+                                                {lipovoy.images ? lipovoy.tags.map((item, index) =>
+
+                                                    <li><a href="" class="icon-box-info">
+                                                        <div class="icon-cell bg-gray">
+                                                            <i class="la la-cutlery"></i>
+                                                        </div>
+                                                        <span>{item}</span>
+                                                    </a></li>
+                                                ) : ''}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </TabPane>
+                        <TabPane tabId="4">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="content-box">
+                                        <div class="content-header">
+                                            <h3 class="title">Фото</h3>
+                                        </div>
+                                        <div class="content-body">
+                                            <div class="product-gallery on-show-slider">
+                                                <Slider class="blog-carousel nav-btn-center-lr btn-1" {...settings} >
+                                                    {
+                                                        lipovoy.images ? lipovoy.img.map((item, index) => (
+                                                            <div class="item" key={index}>
+                                                                <div class="dlab-box">
+                                                                    <div class="dlab-thum-bx">
+                                                                        <img src={item} alt="" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        ))
+                                                            : ''}
+                                                </Slider>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </TabPane>
+
+                        <TabPane tabId="6">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="content-box">
+                                        <div class="content-header">
+                                            <h3 class="title">События</h3>
+                                        </div>
+                                        <div class="content-body">
+                                            <div class="row">
+
+
+                                                    <div class="col-md-12 col-lg-6 col-sm-12 m-b30" key={index}>
+                                                        <div class="dlab-box place-bx top-item">
+                                                            <div class="dlab-media top-item__media"> <a><img src={item.images[0]?.src || 'https://xn--b1amiugdde.xn--p1ai/wp-content/uploads/2018/11/DSC_2797-scaled.jpg'} alt="" /></a> </div>
+                                                            <div class="dlab-info p-tb30 p-lr10 text-center bg-gray">
+                                                                <h4 class="dlab-title m-t0"><a>{item.name}</a></h4>
+                                                                <p class="m-b10">{item.name}</p>
+                                                                <a href='./booking/' class="site-button outline radius-xl m-lr5">Подробнее</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </TabPane>
+                    </TabContent>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,58 @@
+
+            <div>
+                
+                <div class="dlab-bnr-inr overlay-black-light">
+                    <div class="container">
+                        <div class="dlab-bnr-inr-entry">
+                            <h1 class="text-white">Blog Detailed Grid</h1>
+                            <div class="breadcrumb-row">
+                                <ul class="list-inline">
+                                    <li><a>Home</a></li>
+                                    <li>Blog Detailed Grid</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-full content-inner-2 bg-white">
+                    <div class="container">
+                        <div class="dlab-blog-grid-3 row" id="masonry" >
+         
+                                <div class="post card-container col-lg-4 col-md-6 col-sm-6" key={index}>
+                                    <div class="blog-post blog-grid blog-style-1">
+                                        <div class="dlab-post-media dlab-img-effect radius-sm">
+                                            <a><img src={item.image} alt="" /></a>
+                                        </div>
+                                        <div class="dlab-info">
+                                            <div class="dlab-post-meta">
+                                                <ul class="d-flex align-items-center">
+                                                    <li class="post-date">{item.date}</li>
+                                                    <li class="post-comment"><a>{item.comment}</a> </li>
+                                                </ul>
+                                            </div>
+                                            <div class="dlab-post-title ">
+                                                <h5 class="post-title font-20"><a href='./blogdetails/'>{item.title}</a></h5>
+                                            </div>
+                                            <div class="dlab-post-readmore blog-share">
+                                                <a href='./blogdetails/' title="READ MORE" rel="bookmark" class="site-button-a border-a black">READ MORE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+ 
+
+                        </div>
+                        <div class="pagination-bx clearfix text-center">
+                            <ul class="pagination">
+                                <li class="previous"><a><i class="ti-arrow-left"></i> Prev</a></li>
+                                <li class="active"><a>1</a></li>
+                                <li><a>2</a></li>
+                                <li><a>3</a></li>
+                                <li class="next"><a>Next <i class="ti-arrow-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+ 

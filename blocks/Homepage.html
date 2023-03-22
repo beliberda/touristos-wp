@@ -1,0 +1,144 @@
+
+        <div>
+            
+            <div class="page-content">
+
+                <Slider class="slider-wrapper" infinite >
+
+                        <div
+                            class="slider-content"
+                            
+                        >
+                            <div class="inner">
+                                <h1>{item.title}</h1>
+                                <p>{item.description}</p>
+                                <a href="{item.link_button}" ><button class="site-button">{item.button}</button></a>
+                            </div>
+                        </div>
+
+                </Slider>
+
+                <div class="section-full book-form overlay-black-dark bg-img-fix p-t30 p-b10 mid" >
+                    <div class="container">
+                        <form class="row" onChange={handleChange}>
+
+                            <div class="col-md-4 col-sm-6 col-6 col-lg-2 form-group">
+                                <label>Категории</label>
+                                <select class="form-control">
+                                    <option value='0'>Любая</option>
+                                    <option value='0'>Обзорные</option>
+                                    <option value='20'>Морские</option>
+                                    <option value='0'>Познавательные</option>
+                                    <option value='23'>Пешеходные</option>
+                                    <option value='0'>Активные</option>
+                                    <option value='24'>Промышленные</option>
+                                    <option value='0'>Природные объекты</option>
+                                    <option value='21'>Город крепость</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-6 col-lg-2 form-group">
+                                <label>Вид тура</label>
+                                <select class="form-control" >
+                                    <option value='0'>Любой</option>
+                                    <option value='23'>Пеший</option>
+                                    <option value='16'>Экскурсия</option>
+                                    <option value='60'>Тур</option>
+                                    <option value='0'>Катерный</option>
+                                    <option value='63'>Автобусный</option>
+                                    <option value='0'>Катер + автобус</option>
+                                    <option value='0'>Семейный</option>
+                                    <option value='61'>Детский</option>
+                                    <option value='0'>Активный</option>
+                                    <option value='0'>Обзорный</option>
+                                    <option value='0'>Индивидуальный</option>
+                                    <option value='0'>Групповой</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-6 col-lg-2 form-group">
+                                <label>Направления</label>
+                                <select class="form-control">
+                                    <option value='0'>Любое</option>
+                                    <option value='0'>Горы</option>
+                                    <option value='0'>Острова</option>
+                                    <option value='54'>Заповедники</option>
+                                    <option value='0'>Базы отдыха</option>
+                                    <option value='0'>Лечение</option>
+                                    <option value='0'>Море</option>
+                                    <option value='0'>Водопады</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-6 col-lg-2 form-group">
+                                <label>Продолжительность</label>
+
+                                <select class="form-control">
+                                    <option value='0'>Любая</option>
+                                    <option value='0'>1</option>
+                                    <option value='49'>2</option>
+                                    <option value='50'>3</option>
+                                    <option value='51'>4 отдыха</option>
+                                    <option value='0'>5 и более</option>
+                                </select>
+
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-6 col-lg-2 form-group">
+                                <label>География тура</label>
+                                <select class="form-control">
+                                    <option value='0'>Любая</option>
+                                    <option value='0'>Большой липовый</option>
+                                    <option value='0'>Мама-Саха</option>
+                                    <option value='0'>Хасанский район</option>
+                                    <option value='0'>Заповедник</option>
+                                    <option value='0'>остальное Приморье</option>
+                                    <option value='0'>Алтай</option>
+                                    <option value='0'>Байкал</option>
+                                    <option value='0'>Москва</option>
+                                    <option value='0'>Россия</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6 col-6 col-lg-2 form-group button__search" onClick={handleChangeType}>
+                                <a href='/place' class="site-button btn-block">Поиск</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <TopPlaces places={dataPlaces} />
+
+                <div class="section-full bg-white content-inner dlab-about-1 promotions">
+                    <div class="container">
+                        <div class="section-head text-black text-center">
+                            <h2 class="text-uppercase m-b0">Туры</h2>
+                            <p class="font-18">Лучшие туры </p>
+                        </div>
+                        <div class="row packages">
+
+                            {packages.map((item, index) => (
+                                <div class="col-md-6 col-xl-3  col-sm-6 m-b20" key={index}>
+                                    <div class="dlab-box top-item">
+                                        <div class="top-item__media">
+                                            <a href='./booking/'><img src="{item.images[0].src}" alt="" /> </a>
+                                        </div>
+                                        <div class="dlab-info p-a15 border-1">
+                                            <h4 class="dlab-title m-t0"><a href="booking-details.html">{item.name}</a></h4>
+                                            <div class="package-content">
+                                                <div class="clearfix packages-footer">
+                                                    <span class="package-price pull-left text-primary">Руб {item.price}</span>
+                                                    <a href='./booking/' class="site-button pull-right">Подробнее</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <Slick />
+                <Slick2 />
+
+            </div>
+
+        </div>
